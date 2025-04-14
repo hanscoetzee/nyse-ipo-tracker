@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: nyse-ipo-tracker
+    runtime: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn nyse_backend.wsgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: nyse_backend.settings
+    buildFilter:
+      paths:
+        - backend/**
+    rootDir: backend
