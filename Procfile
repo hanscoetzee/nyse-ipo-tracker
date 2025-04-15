@@ -1,1 +1,2 @@
-web: gunicorn backend.nyse_backend.wsgi:application
+web: gunicorn nyse_backend.wsgi:application
+
